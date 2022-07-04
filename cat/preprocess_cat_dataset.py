@@ -1,3 +1,6 @@
+## Modified version of https://github.com/microe/angora-blue/blob/master/cascade_training/describe.py by Erik Hovland
+##### I modified it to work with Python 3, changed the paths and made it output a folder for images bigger than 64x64 and a folder for images bigger than 128x128
+
 import cv2
 import imageio as iio
 import glob
@@ -88,24 +91,22 @@ def describePositive():
 		# of features.
 		coords = [int(i) for i in input.readline().split()[1:]]
 		# Read the image.
-		image = iio.imread(imagePath)
+		image = cv2.imread(imagePath)
+# 		image = iio.imread(imagePath)
 		# Straighten and crop the cat face.
 		crop = preprocessCatFace(coords, image)
-		# print(crop)
-		# break
 		if crop is None:
-			print(f'Failed to preprocess image at {imagePath}.', file=sys.stderr)
+			print("Failed to preprocess image at {}".format(imagePath))
+# 			print(f'Failed to preprocess image at {imagePath}.', file=sys.stderr)
 			continue
 		# Save the crop to folders based on size
 		h, w, colors = crop.shape
 		if min(h,w) >= 64:
 			Path1 = imagePath.replace("cat_dataset","cats_bigger_than_64x64")
-			# cv2.imwrite(Path1, crop)
-			iio.imwrite(Path1,crop)
+			cv2.imwrite(Path1, crop)
 		if min(h,w) >= 128:
 			Path2 = imagePath.replace("cat_dataset","cats_bigger_than_128x128")
-			# cv2.imwrite(Path2, crop)
-			iio.imwrite(Path2,crop)
+			cv2.imwrite(Path2, crop)
 		# Append the cropped face and its bounds to the
 		# positive description.
 		#h, w = crop.shape[:2]

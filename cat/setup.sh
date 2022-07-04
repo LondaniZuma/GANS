@@ -5,21 +5,21 @@
 
 ## Setting up folder
 # unzip CAT_DATASET_01.zip -d cat_dataset
-# unzip CAT_DATASET_02.zip -d cat_dataset
-mv cat_dataset/CAT_00/* cat_dataset
-# rmdir cat_dataset/CAT_00
-mv cat_dataset/CAT_01/* cat_dataset
-# rmdir cat_dataset/CAT_01
-mv cat_dataset/CAT_02/* cat_dataset
-# rmdir cat_dataset/CAT_02
-mv cat_dataset/CAT_03/* cat_dataset
-# rmdir cat_dataset/CAT_03
-mv cat_dataset/CAT_04/* cat_dataset
-# rmdir cat_dataset/CAT_04
-mv cat_dataset/CAT_05/* cat_dataset
-# rmdir cat_dataset/CAT_05
-mv cat_dataset/CAT_06/* cat_dataset
-# rmdir cat_dataset/CAT_06
+# # unzip CAT_DATASET_02.zip -d cat_dataset
+# mv cat_dataset/CAT_00/* cat_dataset
+# # rmdir cat_dataset/CAT_00
+# mv cat_dataset/CAT_01/* cat_dataset
+# # rmdir cat_dataset/CAT_01
+# mv cat_dataset/CAT_02/* cat_dataset
+# # rmdir cat_dataset/CAT_02
+# mv cat_dataset/CAT_03/* cat_dataset
+# # rmdir cat_dataset/CAT_03
+# mv cat_dataset/CAT_04/* cat_dataset
+# # rmdir cat_dataset/CAT_04
+# mv cat_dataset/CAT_05/* cat_dataset
+# # rmdir cat_dataset/CAT_05
+# mv cat_dataset/CAT_06/* cat_dataset
+# # rmdir cat_dataset/CAT_06
 
 ## Error correction
 # rm cat_dataset/00000003_019.jpg.cat
@@ -33,10 +33,10 @@ rm 00000004_007.jpg.cat 00000007_002.jpg.cat 00000045_028.jpg.cat 00000050_014.j
 cd ..
 
 ## Preprocessing and putting in folders for different image sizes
-mkdir cats_bigger_than_64x64
-mkdir cats_bigger_than_128x128
+# mkdir cats_bigger_than_64x64
+# mkdir cats_bigger_than_128x128
 # wget -nc https://raw.githubusercontent.com/AlexiaJM/Deep-learning-with-cats/master/preprocess_cat_dataset.py
-# python preprocess_cat_dataset.py
+python preprocess_cat_dataset.py
 
-## Removing cat_dataset
+# Removing cat_dataset
 # rm -r cat_dataset
